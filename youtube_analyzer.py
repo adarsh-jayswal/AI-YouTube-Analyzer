@@ -1,5 +1,8 @@
+import os
 from textwrap import dedent
 from dotenv import load_dotenv
+import streamlit as st
+
 from agno.agent import Agent
 from agno.models.google import Gemini
 from agno.tools.youtube import YouTubeTools
@@ -8,11 +11,21 @@ load_dotenv()
 
 
 def build_youtube_agent():
+
+    api_key = os.getenv("GOOGLE_API_KEY")
+
+    # Streamlit Cloud Secrets
+    try:
+        api_key = st.secrets["GOOGLE_API_KEY"]
+    except (KeyError, FileNotFoundError):
+        pass
+
     return Agent(
         name="YouTube Agent",
 
         model=Gemini(
-            id="gemini-3.6-flash"
+            id="gemini-3.6-flash",
+            api_key=api_key
         ),
 
         tools=[YouTubeTools()],
