@@ -36,3 +36,18 @@ AI-YouTube-Analyzer/
 ├── ui.py
 ├── youtube_analyzer.py
 └── .env
+
+---
+## 🚀 How to Run
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/adarsh-jayswal/AI-YouTube-Analyzer.git
+
+
+## 👨‍💻 Author
+
+**Adarsh Jaiswal**
+
+Computer Science & Engineering Student
